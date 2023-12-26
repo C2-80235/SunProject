@@ -22,7 +22,7 @@ pipeline {
                 sh '/usr/bin/docker image push shnk/sunproject'
             }
         }
-		stage ('create docker service') {
+		stage ('create docker container') {
 			steps {
 				sh '/usr/bin/docker container run -d --name suncon -p 8080:80 shnk/sunproject'
 			}
