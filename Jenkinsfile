@@ -22,11 +22,6 @@ pipeline {
                 sh '/usr/bin/docker image push shnk/sunproject'
             }
         }
-		stage ('remove docker service') {
-			steps {
-				sh '/usr/bin/docker service rm myservice'
-			}
-		}
 		stage ('create docker service') {
 			steps {
 				sh '/usr/bin/docker service create --replicas 5 --name myservice -p 8080:80 shnk/sunproject'
