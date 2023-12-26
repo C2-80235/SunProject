@@ -24,14 +24,10 @@ pipeline {
         }
 		stage ('create docker service') {
 			steps {
-				sh '/usr/bin/docker service create --replicas 2 --name myservice -p 8080:80 shnk/sunproject'
+				sh '/usr/bin/docker container run -d --name suncon -p 9090:80 shnk/sunproject'
 			}
 		}
-        stage ('reload docker service') {
-            steps {
-                sh '/usr/bin/docker service update --image shnk/sunproject --force myservice'
-            }
-        }
+        
 
     }
 }
