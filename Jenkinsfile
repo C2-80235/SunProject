@@ -29,7 +29,7 @@ pipeline {
 		}
 		stage ('create docker container') {
 			steps {
-				sh '/usr/bin/docker container run -d --name suncon -p 8080:80 shnk/sunproject'
+				sh '/usr/bin/docker container run -d --name suncon -p 9090:80 shnk/sunproject'
 			}
 		}
         
