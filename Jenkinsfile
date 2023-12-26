@@ -24,7 +24,7 @@ pipeline {
         }
 		stage ('create docker service') {
 			steps {
-				sh '/usr/bin/docker service create --replicas 5 --name myservice -p 8080:80 shnk/sunproject'
+				sh '/usr/bin/docker service create --replicas 2 --name myservice -p 8080:80 shnk/sunproject'
 			}
 		}
         stage ('reload docker service') {
