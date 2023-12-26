@@ -22,6 +22,11 @@ pipeline {
                 sh '/usr/bin/docker image push shnk/sunproject'
             }
         }
+		stage ('delete docker container') {
+			steps {
+				sh '/usr/bin/docker rm --force suncon'
+			}
+		}
 		stage ('create docker container') {
 			steps {
 				sh '/usr/bin/docker container run -d --name suncon -p 8080:80 shnk/sunproject'
